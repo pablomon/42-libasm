@@ -1,39 +1,39 @@
 Ensamblador arquitectura x86-64
 
 ------------------  REGISTERS
-ypes of Registers
+Types of Registers
 
 There are two types of registers: "scratch" and "preserved". 
 Scratch registers may be used by any function and are allowed to be overwritten. 
 Preserved registers can also be used by functions, but their content must be saved and restored afterwards.
 
-Name	Type	                            64-bit long	32-bit int	16-bit short	8-bit char
-rax	    scratch / syscall ID and return	    rax	        eax	        ax	            ah and al
-rbx	    preserved	                        rbx	        ebx	        bx	            bh and bl
-rcx	    scratch / 4th argument or counter	rcx	        ecx	        cx	            ch and cl
-rdx	    scratch / 3rd argument	            rdx	        edx	        dx	            dh and dl
-rsp	    preserved / stack's top	            rsp	        esp	        sp	            spl
-rbp	    preserved / stack's base	        rbp	        ebp	        bp	            bpl
-rsi	    scratch / 2nd argument	            rsi	        esi	        si	            sil
-rdi	    scratch / 1st argument	            rdi	        edi	        di	            dil
-r8	    scratch / 5th argument	            r8	        r8d	        r8w	            r8b
-r9	    scratch / 6th argument	            r9	        r9d	        r9w	            r9b
-r10	    scratch	                            r10	        r10d	    r10w	        r10b
-r11	    scratch	                            r11	        r11d	    r11w	        r11b
-r12	    preserved	                        r12	        r12d	    r12w	        r12b
-r13	    preserved	                        r13	        r13d	    r13w	        r13b
-r14	    preserved	                        r14	        r14d	    r14w	        r14b
-r15     preserved	                        r15	        r15d	    r15w	        r15b
+Name	Type								64-bit long	32-bit int	16-bit short	8-bit char
+rax		scratch / syscall ID and return		rax			eax	        ax	            ah and al
+rbx		preserved							rbx	        ebx	        bx	            bh and bl
+rcx		scratch / 4th argument or counter	rcx	        ecx	        cx	            ch and cl
+rdx		scratch / 3rd argument				rdx	        edx	        dx	            dh and dl
+rsp		preserved / stack's top				rsp	        esp	        sp	            spl
+rbp		preserved / stack's base			rbp	        ebp	        bp	            bpl
+rsi		scratch / 2nd argument				rsi	        esi	        si	            sil
+rdi		scratch / 1st argument				rdi	        edi	        di	            dil
+r8		scratch / 5th argument				r8	        r8d	        r8w	            r8b
+r9		scratch / 6th argument				r9	        r9d	        r9w	            r9b
+r10		scratch								r10	        r10d	    r10w	        r10b
+r11		scratch								r11	        r11d	    r11w	        r11b
+r12		preserved							r12	        r12d	    r12w	        r12b
+r13		preserved							r13	        r13d	    r13w	        r13b
+r14		preserved							r14	        r14d	    r14w	        r14b
+r15 	preserved							r15	        r15d	    r15w	        r15b
 
 ------------------  OPERATIONS
-; Save register
+Save register
 push	REG
 pop		REG
 
-; Set register value
+Set register value
 mov		REG, VALUE	; DEST = VALUE
 
-; Common operations
+Common operations
 add		DEST, VALUE	; DEST = DEST + VALUE
 sub		-			; DEST = DEST - VALUE
 inc		REG			; REG++
@@ -44,13 +44,13 @@ xor		REG, REG	; = mov	REG, 0
 mul		REG			; REG = REG * RAX
 div		REG			; REG = REG / RAX
 
-; Dereferenced value
+Dereferenced value
 		[REG]		; = *REG
 
-; Compare
+Compare
 cmp	REG, VALUE		; Set flags used by jmp variants
 
-; Label
+Label
 label:
 		jmp	label	; next jumps depends on compare flags from cmp
 		je	-		; is equal
@@ -89,9 +89,9 @@ These are the basic forms of addressing with memory operands:
 [ reg + reg*scale + number ]
 
 ------------------  SYSTEM CALL
-syscall	ID	ARG1	ARG2	ARG3
-sys_read	0	#fd	$buffer	#count
-sys_write	1	#fd	$buffer	#count
-sys_open	2	$filename	#flags	#mode
-sys_close	3	#fd	-	-
-sys_exit	60	#errcode	-	-
+syscall		ID		ARG1		ARG2		ARG3
+sys_read	0		#fd			$buffer		#count
+sys_write	1		#fd			$buffer		#count
+sys_open	2		$filename	#flags		#mode
+sys_close	3		#fd
+sys_exit	60		#errcode

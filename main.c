@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/25 17:50:46 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:32:12 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,22 +72,22 @@ void	test_strcmp()
 	
 	s1 = "";
 	s2 = "";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	s1 = "";
 	s2 = "a string";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	s1 = "a string";
 	s2 = "";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	s1 = "a string";
 	s2 = "a string";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	s1 = "1";
 	s2 = "2";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	s1 = "2";
 	s2 = "1";
-	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), strcmp(s1,s2));
+	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
 	printf("\n");
 }
 
