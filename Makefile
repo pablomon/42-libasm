@@ -1,11 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/11/25 17:49:57 by pmontese          #+#    #+#              #
+#    Updated: 2021/11/25 17:51:22 by pmontese         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS		=	ft_strlen.s ft_strcmp.s ft_strcpy.s ft_write.s ft_read.s ft_strdup.s
 OBJS		=	$(SRCS:.s=.o)
 
 NA			=	nasm
 NA_FLAGS	=	-felf64
-CC			=	clang
-#FLAGS 		=	-Wall -Werror -Wextra -lasm -L.
-CFLAGS		=	-lasm -L.
+CC			=	gcc
+
 NAME		=	libasm.a
 MAIN		=	main
 
@@ -24,13 +35,8 @@ clean:
 				rm -rf $(OBJS)
 
 fclean:			clean
-				rm -rf $(NAME) $(MAIN)
+				rm -rf $(NAME)
 
 re:				fclean $(NAME)
 
-main:			$(MAIN_OBJ)
-				make
-				$(CC) $(CFLAGS) -o $(MAIN) $(MAIN_OBJ)
-				./$(MAIN)
-
-.PHONY:			clean fclean re test bonus test_bonus
+.PHONY:			clean fclean re

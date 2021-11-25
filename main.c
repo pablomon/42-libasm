@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
+/*   Updated: 2021/11/25 17:50:46 by pmontese         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <errno.h>
 #include <unistd.h>
 #include <fcntl.h>
@@ -29,6 +41,7 @@ void	test_strlen()
 	}
 	str[i] = 0;
 	printf("'%s': \nstrlen:%ld, ft_strlen:%ld\n", str, strlen(str), ft_strlen(str));
+	printf("\n");
 }
 
 void	test_strcpy()
@@ -96,21 +109,22 @@ void	test_write()
 	printf("writing to a filedescriptor\n");
 	fd = open("writen-from-test_write.txt", O_CREAT | O_WRONLY | O_APPEND, 0777);
 	str = "You have a new message in your file\n";
-	printf("write: 'You have a new message in your file\\n'\n" , str);
+	printf("write: 'You have a new message in your file\\n'\n");
 	ret = write(fd,str, strlen(str));
-	printf("ret = %d, errno = %d\n", ret);
-	printf("ft_write: 'You have a new message in your file\\n'\n" , str);
+	printf("ret = %d, errno = %d\n", ret, errno);
+	printf("ft_write: 'You have a new message in your file\\n'\n");
 	ret = ft_write(fd,str, strlen(str));
-	printf("ret = %d, errno = %d\n", ret);
+	printf("ret = %d, errno = %d\n", ret, errno);
 	close(fd);
 
 	printf("writing to a wrong fd (fd = -1)\n");
-	printf("write: 'This won't work\\n'\n" , str);
+	printf("write: 'This won't work\\n'\n");
 	ret = write(-1,str, strlen(str));
 	printf("ret = %d, errno = %d\n", ret, errno);
-	printf("ft_write: 'This won't work\\n'\n" , str);
+	printf("ft_write: 'This won't work\\n'\n");
 	ret = ft_write(-1,str, strlen(str));
 	printf("ret = %d, errno = %d\n", ret, errno);
+	printf("\n");
 }
 
 void	test_read()
@@ -154,18 +168,48 @@ void	test_read()
 	printf("buffer = %sret = %zd\n", buf, ret);
 }
 
+void	test_strdup()
+{
+	char	*str;
+	char	*dup1;
+	char	*dup2;
+
+	printf("Duplicate a string\n");
+	str = "Clone me!";
+	printf("string: '%s'\n", str);
+	dup1 = strdup(str);
+	printf("strdup: '%s'\n", dup1);
+	free(dup1);
+	dup2 = strdup(str);
+	printf("ft_strdup: '%s'\n", dup2);
+	free(dup2);
+
+	printf("Duplicate an empty string\n");
+	str = "";
+	printf("string: '%s'\n", str);
+	dup1 = strdup(str);
+	printf("strdup: '%s'\n", dup1);
+	free(dup1);
+	dup2 = strdup(str);
+	printf("ft_strdup: '%s'\n", dup2);
+	free(dup2);
+}
+
 int		main(void)
 {
-	// printf("\nTESTING LIBASM\n\n");
-	// printf("1.\tFT_STRLEN\n");
-	// test_strlen();
-	// printf("2.\tFT_STRCPY\n");
-	// test_strcpy();
-	// printf("3.\tFT_STRCMP\n");
-	// test_strcmp();
-	printf("4.\tFT_WRITE\n");
+	printf("\nTESTING LIBASM\n\n");
+	printf("\t1.FT_STRLEN\n");
+	test_strlen();
+	printf("\t2.FT_STRCPY\n");
+	test_strcpy();
+	printf("\t3.FT_STRCMP\n");
+	test_strcmp();
+	printf("\t4.FT_WRITE\n");
 	test_write();
-	// printf("5.\tFT_READ\n");
-	// test_read();
+	printf("\t5.FT_READ\n");
+	test_read();
+	printf("\t6.FT_STRDUP\n");
+	test_strdup();
+	printf("\nFINISHED\n\n");
 	return (0);
 }
