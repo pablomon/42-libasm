@@ -6,16 +6,16 @@
 #    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 17:49:57 by pmontese          #+#    #+#              #
-#    Updated: 2021/11/25 18:06:29 by pmontese         ###   ########.fr        #
+#    Updated: 2021/11/25 23:19:33 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	src/ft_strlen.s \
-		src/ft_strcmp.s \
-		src/ft_strcpy.s \
-		src/ft_write.s \
-		src/ft_read.s \
-		src/ft_strdup.s
+				src/ft_strcmp.s \
+				src/ft_strcpy.s \
+				src/ft_write.s \
+				src/ft_read.s \
+				src/ft_strdup.s
 
 OBJS		=	$(SRCS:.s=.o)
 

@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/25 18:32:12 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/25 23:19:12 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,8 +130,8 @@ void	test_write()
 void	test_read()
 {
 	char		buf[100];
-    int         fd;
-    ssize_t     ret;
+	int			fd;
+	ssize_t		ret;
 
 	printf("read file\n");
 	printf("read : \n");
