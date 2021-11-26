@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/26 17:43:03 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/26 17:48:03 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -211,6 +211,5 @@ int		main(void)
 	printf("\t6.FT_STRDUP\n");
 	test_strdup();
 	printf("\nFINISHED\n\n");
-	system("leaks");
 	return (0);
 }
