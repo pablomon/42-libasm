@@ -20,7 +20,7 @@ _ft_read:
 	jc			.error			; if (ret < 0) => .error
 	ret							; return (ret)
 
-.error
+.error:
     push r10
     mov r10, rax
     call ___error
