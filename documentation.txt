@@ -162,3 +162,15 @@ And, finally, the signed ones:
 | JG/    | Jump if greater              | signed      | ZF = 0 and SF = OF |
 | JNLE   | Jump if not less or equal    |             |                    |
 +--------+------------------------------+-------------+--------------------
+
+
+------------------  CONVENTIONS
+
+syscall		MacOS Id (%rax)	Linux ID (%rax)	ARG_1 (%rdi)	ARG_2 (%rsi)	ARG_3 (%rdx)	ARG_4 (if syscall %r10 else %rcx )	ARG_5 (%r8)	ARG_6 (%r9)
+sys_read	0x2000003		0				fd	& buffer	count
+sys_write	0x2000004		1				fd	& buffer	count
+sys_open	0x2000005		2				filename		Flags			mode
+sys_close	0x2000006		3				fd
+sys_exit	0x2000001		60				error_code
+...	...	...	...	...	...	...	...	...
+pwritev2	-				328
