@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/26 12:14:59 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/26 13:48:24 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ void	test_strlen()
 void	test_strcpy()
 {
 	char	src1[] = "a string";
-	char	dst1[] = "12345678910";
+	char	dst1[100];
 	char	src2[] = "a much much longer string that gets coppied nonetheless as you woudl expect";
-	char	dst2[] = "12345\0";
+	char	dst2[200];
 	int		len;
 
-	printf("same length: (src = '%s', dst = '%s')\n", src1, dst1);
+	printf("copy 1: (src = '%s', dst = '%s')\n", src1, dst1);
 	strcpy(dst1, src1);
 	printf("strcpy: %s\n", dst1);
 	ft_strcpy(dst1, src1);
 	printf("ft_strcpy: %s\n", dst1);
 	printf("\n");
 
-	printf("shorter dst: (src = '%s', dst = '%s')\n", src2, dst2);
+	printf("copy 2: (src = '%s', dst = '%s')\n", src2, dst2);
 	printf("strcpy: %s\n", strcpy(dst2, src2));
 	printf("ft_strcpy: %s\n", ft_strcpy(dst2, src2));
 	printf("\n");
@@ -200,15 +200,15 @@ int		main(void)
 	printf("\nTESTING LIBASM\n\n");
 	// printf("\t1.FT_STRLEN\n");
 	// test_strlen();
-	printf("\t2.FT_STRCPY\n");
-	test_strcpy();
+	// printf("\t2.FT_STRCPY\n");
+	// test_strcpy();
 	// printf("\t3.FT_STRCMP\n");
 	// test_strcmp();
 	// printf("\t4.FT_WRITE\n");
 	// test_write();
 	// printf("\t5.FT_READ\n");
-	// test_read();
-	// printf("\t6.FT_STRDUP\n");
+	test_read();
+	printf("\t6.FT_STRDUP\n");
 	// test_strdup();
 	// printf("\nFINISHED\n\n");
 	return (0);

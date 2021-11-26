@@ -17,14 +17,14 @@ extern ___error
 _ft_read:
 	mov			rax, 0x2000003	; read syscall
 	syscall						; ret = read(fd, buf, count)
-	cmp			rax, 0			;
-	jl			.error			; if (ret < 0) => .error
+	jc			.error			; if (ret < 0) => .error
 	ret							; return (ret)
 
-.error:
-	mov			rdi, rax			; tmp = ret
-	neg			rdi					; tmp = -tmp (invert value for positive errno)
-	call		___error	; ret = &errno (get pointer to errno)
-	mov			[rax], rdi			; *ret = tmp (put return value into errno)
-	mov			rax, -1				; ret = -1
-	ret								; return (ret)
+.error
+    push r10
+    mov r10, rax
+    call ___error
+    mov qword [rax], r10
+    mov rax, -1
+    pop r10
+    ret

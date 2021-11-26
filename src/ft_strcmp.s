@@ -12,21 +12,21 @@ global		_ft_strcmp
 section		.text
 
 _ft_strcmp:
-	mov			rcx, -1		; i = 0
+	mov rcx, 0		 ; we put rcx to 0
 
-.while:
-	inc			rcx						; i++;
-	mov			dl, byte[rdi + rcx]		; char c1 = s1[i]
-	mov			dh, byte[rsi + rcx]		; char c2 = s2[i]
-	cmp			dl, dh
-	jne			.return					; if (s1[i] != s2[i]) => return
-	cmp			dl, 0
-	je			.return					; if (s1[i] == '\0') => return
-	cmp			dh, 0
-	je			.return					; if (s2[i] == '\0') => return
-	jmp			.while
+comp:
+	cmp 		BYTE [rdi + rcx], 0			;
+	je return			 					; if (s1[i] == 0) => .return
+	cmp 		BYTE [rsi + rcx], 0 		;
+	je return			 					; if (s2[i] == 0) => .return
+	mov 		al, BYTE [rsi + rcx]		; char c = s2[i]
+	cmp 		BYTE [rdi + rcx], al		;
+	jne return								; if (c != s1[i]) => .return
+	inc 		rcx							; i++
+	jmp 		comp						; and we continue to compare
 
-.return:
-	sub			dl, dh		; c1 -= c2
-	movsx		rax, dl		; ret (c1)
-	ret
+return:
+	movzx 		rax, BYTE [rdi + rcx]		; ret = s1[i]
+	movzx 		rdx, BYTE [rsi + rcx]		; tmp = s2[i]
+	sub 		rax, rdx					; ret -= tmp
+	ret										; return ret

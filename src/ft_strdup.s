@@ -16,17 +16,17 @@ extern		_ft_strcpy
 section		.text
 
 _ft_strdup:
-	call		_ft_strlen		; len = ft_strlen(s1)
-	inc			rax				; len++
-	mov			rbx, rdi		; tmp = s1
-	mov			rdi, rax		; size = len
-	call		_malloc			; ret_malloc = malloc(size)
-	cmp			rax, 0
-	je			.error			; if (!ret_malloc) => .error
-	mov			rdi, rax		; dst = ret_malloc
-	mov			rsi, rbx		; src = tmp
-	call		_ft_strcpy
-	ret
+	call	_ft_strlen		; len = ft_strlen(s1)
+	push	rdi				; save src on the stack
+	inc		rax				; len++
+	mov		rdi, rax		; len_for_malloc = len
+	call	_malloc			; ptr = malloc(len_for_malloc)
+	cmp		rax, 0			;
+	jz		.error			; if (ptr == 0) => .error
+	mov		rdi, rax		; dst = ptr
+	pop		rsi				; bring src from the stack
+	call	_ft_strcpy		; ft_strcpy(dst, src)
+	ret						; return dst
 
 .error:
 	mov			rdi, rax			; tmp = ret
