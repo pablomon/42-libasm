@@ -6,7 +6,7 @@
 /*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/26 13:48:24 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/26 17:43:03 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,18 +198,19 @@ void	test_strdup()
 int		main(void)
 {
 	printf("\nTESTING LIBASM\n\n");
-	// printf("\t1.FT_STRLEN\n");
-	// test_strlen();
-	// printf("\t2.FT_STRCPY\n");
-	// test_strcpy();
-	// printf("\t3.FT_STRCMP\n");
-	// test_strcmp();
-	// printf("\t4.FT_WRITE\n");
-	// test_write();
-	// printf("\t5.FT_READ\n");
+	printf("\t1.FT_STRLEN\n");
+	test_strlen();
+	printf("\t2.FT_STRCPY\n");
+	test_strcpy();
+	printf("\t3.FT_STRCMP\n");
+	test_strcmp();
+	printf("\t4.FT_WRITE\n");
+	test_write();
+	printf("\t5.FT_READ\n");
 	test_read();
 	printf("\t6.FT_STRDUP\n");
-	// test_strdup();
-	// printf("\nFINISHED\n\n");
+	test_strdup();
+	printf("\nFINISHED\n\n");
+	system("leaks");
 	return (0);
 }
