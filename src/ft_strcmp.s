@@ -7,11 +7,11 @@
 ; return:		rax -> int diff
 ;========================================================
 
-global		ft_strcmp
+global		_ft_strcmp
 
 section		.text
 
-ft_strcmp:
+_ft_strcmp:
 	mov			rcx, -1		; i = 0
 
 .while:

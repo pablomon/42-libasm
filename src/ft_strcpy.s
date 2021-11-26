@@ -8,14 +8,14 @@
 ;========================================================
 
 
-global	ft_strcpy
-
 section	.text
+global	_ft_strcpy
 
-ft_strcpy:
+
+_ft_strcpy:
 	mov		rcx, -1			; i = -1
 	mov		rdx, 0			; tmp = 0
-	cmp		rsi, 0			; 
+	cmp		rsi, 0			;
 	jz		.return			; if (dst == 0) => .return
 
 .while:

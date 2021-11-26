@@ -1,16 +1,16 @@
 ; size_t	ft_strlen(const char *s)
 ;
-; args: 
+; args:
 ; 	rdi -> const char *s
 ;
 ; return:	rax -> size_t len
 ;========================================================
 
-global		ft_strlen
+global		_ft_strlen
 
 section .text
 
-ft_strlen:
+_ft_strlen:
 	mov			rax, -1			; i = 0
 
 .while:							; while

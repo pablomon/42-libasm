@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+        */
+/*   By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:49:48 by pmontese          #+#    #+#             */
-/*   Updated: 2021/11/25 23:19:12 by pmontese         ###   ########.fr       */
+/*   Updated: 2021/11/26 12:14:59 by pmontese         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	test_strlen()
 	printf("'': strlen:%ld, ft_strlen:%ld\n", strlen(""), ft_strlen(""));
 	i = 0;
 	while (i < 500)
-	{	
+	{
 		str[i] = 'b';
 		if (i % 2 == 0)
 			str[i] = 'a';
@@ -48,7 +48,7 @@ void	test_strcpy()
 {
 	char	src1[] = "a string";
 	char	dst1[] = "12345678910";
-	char	src2[] = "a longer string";
+	char	src2[] = "a much much longer string that gets coppied nonetheless as you woudl expect";
 	char	dst2[] = "12345\0";
 	int		len;
 
@@ -69,7 +69,7 @@ void	test_strcmp()
 {
 	char	*s1;
 	char	*s2;
-	
+
 	s1 = "";
 	s2 = "";
 	printf("('%s', '%s'): strcmp:%d, ft_strcmp:%d\n", s1, s2, strcmp(s1,s2), ft_strcmp(s1,s2));
@@ -98,7 +98,7 @@ void	test_write()
 	int		fd;
 
 	printf("writing to stdout\n");
-	str = "It's a long story, to long to tell here.";
+	str = "It's a long story, too long to tell here.";
 	printf("write '%s' to stdout\n", str);
 	ret = write(1, str, strlen(str));
 	printf("\nret: %d\n", ret);
@@ -135,7 +135,7 @@ void	test_read()
 
 	printf("read file\n");
 	printf("read : \n");
-	fd = open("test.txt", O_RDONLY);
+	fd = open("hello.txt", O_RDONLY);
 	ret = read(fd, buf, 100);
 	buf[ret] = '\0';
 	printf("buffer = %s\nret = %zd\n", buf, ret);
@@ -143,7 +143,7 @@ void	test_read()
 	close(fd);
 	buf[0] = 0;
 	printf("ft_read : \n");
-	fd = open("test.txt", O_RDONLY);
+	fd = open("hello.txt", O_RDONLY);
 	ret = ft_read(fd, buf, 100);
 	buf[ret] = '\0';
 	printf("buffer = %s\nret = %zd\n", buf, ret);
@@ -198,18 +198,18 @@ void	test_strdup()
 int		main(void)
 {
 	printf("\nTESTING LIBASM\n\n");
-	printf("\t1.FT_STRLEN\n");
-	test_strlen();
+	// printf("\t1.FT_STRLEN\n");
+	// test_strlen();
 	printf("\t2.FT_STRCPY\n");
 	test_strcpy();
-	printf("\t3.FT_STRCMP\n");
-	test_strcmp();
-	printf("\t4.FT_WRITE\n");
-	test_write();
-	printf("\t5.FT_READ\n");
-	test_read();
-	printf("\t6.FT_STRDUP\n");
-	test_strdup();
-	printf("\nFINISHED\n\n");
+	// printf("\t3.FT_STRCMP\n");
+	// test_strcmp();
+	// printf("\t4.FT_WRITE\n");
+	// test_write();
+	// printf("\t5.FT_READ\n");
+	// test_read();
+	// printf("\t6.FT_STRDUP\n");
+	// test_strdup();
+	// printf("\nFINISHED\n\n");
 	return (0);
 }

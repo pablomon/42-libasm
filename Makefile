@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pmontese <pmontes@student.42madrid.com>    +#+  +:+       +#+         #
+#    By: pmontese <pmontese@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/25 17:49:57 by pmontese          #+#    #+#              #
-#    Updated: 2021/11/25 23:19:33 by pmontese         ###   ########.fr        #
+#    Updated: 2021/11/26 11:51:59 by pmontese         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,14 +20,10 @@ SRCS		=	src/ft_strlen.s \
 OBJS		=	$(SRCS:.s=.o)
 
 NA			=	nasm
-NA_FLAGS	=	-felf64
+NA_FLAGS	=	-f macho64
 CC			=	gcc
 
 NAME		=	libasm.a
-MAIN		=	main
-
-MAIN_SRC	=	main.c
-MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
 
 %.o:			%.s
 				$(NA) $(NA_FLAGS) $<
