@@ -1,6 +1,6 @@
 # 42-libasm
 
-Recreation the following functions in x86-64 assembly:
+Recreation of the following functions in x86-64 assembly:
 read, write, strlen, strcmp, strcpy, strdup
 
 It passes the following tests:
