@@ -10,3 +10,5 @@ https://github.com/vscabell/42libasm_tester
 https://github.com/valentinllpz/Libasm_Unit_Tests
 
 https://github.com/Tripouille/libasmTester
+
+If you want to use it on a Linux system you need to use the proper syscalls and substitute __error for __errno_location
